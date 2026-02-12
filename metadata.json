@@ -1,0 +1,5 @@
+{
+  "name": "MedFlow Clinic Management",
+  "description": "A streamlined clinical workflow application for patient reception, doctor task management, and real-time task progress tracking.",
+  "requestFramePermissions": []
+}
