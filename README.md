@@ -1,394 +1,188 @@
+# MedFlow Clinic — Real-Time Hospital Workflow Management System
 
+## Project Overview
 
-\# MedFlow Clinic  
+MedFlow Clinic is a real-time hospital workflow management platform designed to streamline coordination between reception, doctors, laboratories, and pharmacies. The system centralizes all clinical actions around a single patient encounter, enabling transparent tracking of patient care from registration to completion.
 
-\### Real-Time Patient Workflow Management System
-
-
-
-MedFlow Clinic is a real-time hospital workflow management system designed to eliminate fragmented communication between reception, doctors, laboratories, and pharmacies.
-
-
-
-The platform centralizes all clinical actions around a single patient encounter, ensuring transparency, efficiency, and synchronized operations across departments.
-
-
+The platform addresses common operational challenges in healthcare environments such as fragmented communication, delayed task handling, and lack of real-time visibility. By organizing workflows into structured department queues and synchronized updates, MedFlow Clinic improves efficiency and reduces coordination delays.
 
 ---
 
+## Key Features
 
-
-\## Problem Statement
-
-
-
-Hospitals and clinics frequently face:
-
-
-
-\- Manual handling of patient tasks and coordination
-
-\- No real-time visibility of patient status
-
-\- Delays between departments (Reception → Doctor → Lab → Pharmacy)
-
-\- Scattered patient information across systems
-
-\- Lack of centralized workflow tracking
-
-
-
-These inefficiencies lead to longer waiting times and operational confusion.
-
-
+- Centralized patient registration with token-based encounter system  
+- Department-based doctor assignment  
+- Role-specific dashboards (Reception, Doctor, Lab, Pharmacy)  
+- Real-time task queues with live status tracking  
+- Automated patient activity timeline  
+- Lab reporting workflow integrated with doctor review  
+- Secure relational database with Row Level Security (RLS)
 
 ---
 
+## Tech Stack
 
+### Frontend
 
-\## Proposed Solution
+- React  
+- TypeScript  
+- Tailwind CSS  
+- Lucide Icons  
 
+### Backend
 
+- Supabase (PostgreSQL database + REST API)  
+- Supabase Realtime subscriptions  
 
-MedFlow Clinic introduces a structured, real-time workflow system that:
+### Database & Security
 
+- PostgreSQL (via Supabase)  
+- Row Level Security (RLS) policies  
+- Relational schema with foreign key constraints  
 
+### Development & Collaboration
 
-\- Registers patients with department selection
-
-\- Dynamically assigns available doctors within a department
-
-\- Manages department-wise task queues
-
-\- Sends lab test results directly to doctors
-
-\- Tracks every action in a live patient timeline
-
-\- Synchronizes all updates in real time
-
-
-
-The system ensures a transparent and seamless clinical journey from consultation to completion.
-
-
+- Google AI Studio (AI-assisted development)  
+- GitHub (version control and repository hosting)
 
 ---
 
+## System Architecture Summary
 
+The system follows a modular client–server architecture:
 
-\## Core Features
+Reception → Department Selection → Doctor Assignment →  
+Lab/Pharmacy Processing → Timeline Updates → Completion
 
-
-
-\- Department-based doctor assignment  
-
-\- Dynamic doctor availability filtering  
-
-\- Real-time task management  
-
-\- Lab-to-doctor report flow (Positive / Negative reports)  
-
-\- Centralized patient timeline  
-
-\- Role-based dashboards (Reception, Doctor, Lab, Pharmacy)  
-
-\- Secure database with Row Level Security (RLS)  
-
-
+Frontend dashboards communicate with Supabase in real time, ensuring synchronized updates across departments.
 
 ---
 
-
-
-\## System Architecture
-
-
-
-The application follows a modular client-server architecture.
-
-
-
-\### Frontend Layer
-
-\- React + TypeScript
-
-\- Tailwind CSS
-
-\- Role-based dashboards
-
-\- Modern UI components
-
-\- Real-time UI updates
-
-
-
-\### Backend Layer
-
-\- Supabase (PostgreSQL Database + REST API)
-
-\- Real-time subscriptions
-
-\- Secure access policies (RLS)
-
-
-
-\### Database Structure
-
-
-
-\- `patients`
-
-\- `encounters`
-
-\- `doctors`
-
-\- `tasks`
-
-\- `task\_updates`
-
-\- Department → Doctor relationship mapping
-
-
-
-\### Workflow Pipeline
-
-
-
-Reception  
-
-→ Department Selection  
-
-→ Doctor Assignment  
-
-→ Consultation  
-
-→ Lab / Pharmacy Tasks  
-
-→ Report Back to Doctor  
-
-→ Timeline Update  
-
-→ Completion  
-
-
-
----
-
-
-
-\## Tech Stack
-
-
-
-\### Frontend
-
-\- React
-
-\- TypeScript
-
-\- Tailwind CSS
-
-\- Lucide Icons
-
-
-
-\### Backend
-
-\- Supabase
-
-\- PostgreSQL
-
-\- Supabase Realtime
-
-
-
-\### Development Tools
-
-\- Google AI Studio (AI-assisted development)
-
-\- GitHub (Version control)
-
-
-
----
-
-
-
-\## Directory Structure
-
-
+## Project Directory Structure
 
 ```
-
 medflow-clinic/
-
 │
-
 ├── src/
-
-│   ├── components/        # Reusable UI components
-
-│   ├── pages/             # Reception, Doctor, Lab, Pharmacy views
-
-│   ├── lib/               # Supabase configuration
-
-│   ├── types/             # TypeScript interfaces
-
-│   ├── styles/            # Global styles
-
+│   ├── components/      # Reusable UI components
+│   ├── pages/           # Reception, Doctor, Lab, Pharmacy views
+│   ├── lib/             # Supabase configuration
+│   ├── types/           # TypeScript interfaces
 │   └── main.tsx
-
 │
-
-├── assets/                # Static assets
-
-├── docs/                  # Documentation \& diagrams
-
-├── public/                # Public files
-
+├── docs/                # Architecture diagrams and documentation
+├── assets/              # Images and presentation assets
+├── public/              # Static files
 │
-
+├── README.md
 ├── package.json
-
 ├── tailwind.config.js
-
-└── README.md
-
+└── vite.config.ts
 ```
-
-
 
 ---
 
+## Installation and Setup
 
+### Prerequisites
 
-\## Installation \& Setup
+- Node.js (v18 or later recommended)  
+- npm or yarn  
+- Supabase account  
 
-
-
-\### 1. Clone Repository
-
-
+### Step 1 — Clone the Repository
 
 ```bash
-
 git clone https://github.com/your-username/medflow-clinic.git
-
 cd medflow-clinic
-
 ```
 
-
-
-\### 2. Install Dependencies
-
-
+### Step 2 — Install Dependencies
 
 ```bash
-
 npm install
-
 ```
 
+or
 
-
-\### 3. Configure Environment Variables
-
-
-
-Create a `.env` file:
-
-
-
+```bash
+yarn install
 ```
 
-VITE\_SUPABASE\_URL=your\_supabase\_url
+### Step 3 — Configure Environment Variables
 
-VITE\_SUPABASE\_ANON\_KEY=your\_supabase\_anon\_key
+Create a `.env` file in the project root:
 
 ```
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-
-
-You can find these in:
+These values are available in:
 
 Supabase Dashboard → Project Settings → API
 
-
-
-\### 4. Run Development Server
-
-
+### Step 4 — Run the Development Server
 
 ```bash
-
 npm run dev
-
 ```
 
+The application will be available at:
 
-
-Open:
-
+```
 http://localhost:5173
-
-
-
----
-
-
-
-\## Security
-
-
-
-\- Row Level Security (RLS) enabled
-
-\- Controlled API access
-
-\- Secure database relations
-
-
+```
 
 ---
 
+## Usage Guide
 
-
-\## Future Improvements
-
-
-
-\- AI-assisted triage recommendations
-
-\- Advanced analytics dashboard
-
-\- Multi-clinic scalability
-
-\- Automated patient notifications
-
-
+1. Register a patient through the Reception dashboard  
+2. Select department and assign a doctor  
+3. Create clinical tasks from the Doctor dashboard  
+4. Process tasks in Lab and Pharmacy queues  
+5. Monitor real-time updates in the Timeline view  
 
 ---
 
+## Security Considerations
 
+- Row Level Security enabled on database tables  
+- Controlled read/write access policies  
+- Relational integrity enforced via foreign keys  
 
-\## Team
+---
 
+## Future Enhancements
 
+- AI-assisted clinical recommendations  
+- Advanced analytics dashboard  
+- Multi-clinic scalability  
+- Electronic medical record integration  
+
+---
+
+## Team
 
 Developed as part of the Vibe Coding Hackathon.
 
+Team members: 
+Mohammed Zayd AbdurRahman
+Ruchitra Jangala
+Ishanth Kulkarni
+Sravani Madisetty
+---
 
+## License
+
+This project is intended for educational and hackathon purposes.
 
 ---
 
+## Acknowledgements
 
-
-\## License
-
-
-
-For educational and hackathon purposes.
-
-
+- Supabase for backend infrastructure  
+- Google AI Studio for development assistance  
+- Open-source React ecosystem
 
